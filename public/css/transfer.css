@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+.view{
+    display: flex;
+    height: 70vh;
+    width: 70%;
+    background-color: white;
+    margin-top: 30px;
+    padding: 30px 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 15px;
+}
+.kr{
+    width: 50%;
+    float: left;
+}
+.kn{
+    width: 50%;
+    float: right;
+}
+.logo{
+    margin: 0;
+}
+img{
+    width: 110px;
+}
+.norek{
+    margin-top: 10px;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+}
+.textno{
+    width: 50%;
+    font-size: 15px;
+}
+.no{
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding: 0;
+    margin-right: 0;
+    width: 50%;
+    text-align: right;
+}
+.jdl{
+    margin-bottom: 10px;
+}
+.desk{
+    font-size: 15px;
+    padding-top: 0;
+    margin-left: 19px;
+    margin-bottom: 10px;
+}
+.headline{
+    font-weight: 700;
+    font-size: 17px;
+    margin: 0;
+}
+.sisawaktu{
+    padding: 20px;
+    padding-top: 0;
+    margin-top: 5px;
+    margin-left: 40px;
+}
+#countdown{
+    box-sizing: border-box;
+    max-width: 100px;
+    width: auto;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 60px;
+}

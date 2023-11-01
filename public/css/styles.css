@@ -1,0 +1,508 @@
+img{
+    width: 100%;
+    display: block;
+}
+
+.home-content{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.container{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.2rem;
+}
+
+header{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://localhost/login-multi-user/public/img/download.jpg) center/cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.login-background{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://localhost/login-multi-user/public/img/download.jpg) center/cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.banner{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.banner-title{
+    font-size: 3rem;
+    font-family: var(--Playfair);
+    line-height: 1.2;
+}
+.banner-title span{
+    font-family: var(--Playfair);
+    color: var(--exDark);
+}
+.banner p{
+    padding: 1rem 0 2rem 0;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-family: var(--Roboto);
+    font-weight: 300;
+    word-spacing: 2px;
+}
+.banner form{
+    background: #fff;
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+.search-input{
+    font-family: var(--Roboto);
+    font-size: 1.1rem;
+    width: 100%;
+    outline: 0;
+    padding: 0.6rem 0;
+    border: none;
+}
+
+.search-input::placeholder{
+    text-transform: capitalize;
+}
+
+.search.btn{
+    width: 40px;
+    font-size: 1.1rem;
+    color: var(--dark);
+    border: none;
+    background: transparent;
+    outline: 0;
+    cursor: pointer; 
+}
+
+.design{
+    padding: 4.5rem;
+    margin-top: 0px;
+}
+.title{
+    text-align: center;
+    padding: 1rem 0;
+}
+.title h2{
+    font-family: var(--Playfair);
+    font-size: 2.4rem;
+}
+.title p{
+    text-transform: uppercase;
+    padding: 0.6rem 0;
+}
+.design-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.design-item{
+    cursor: pointer;
+    margin: 1.5rem 0;
+    max-width: 320px;
+    
+}
+.design-img{
+    position: relative;
+    overflow: hidden;
+    height: 375px;
+    width: 250px;
+    border-radius: 10px; 
+}
+.design-img ::after{
+    position: absolute;
+    content: --;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+.design-img img{
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+.design-item:hover img{
+    transform: scale(1.2);
+    border-radius: 10px;
+}
+.design-img span:first-of-type{
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    background: var(--exDark);
+    color: #fff;
+    padding: 0.25rem 1rem;
+}
+.design-img span:last-of-type{
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.design-title{
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 70%;
+}
+.design-title a{
+    color: var(--dark);
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: var(--Playfair);
+}
+
+/* Login Page */
+.login-section {
+    justify-content: center;
+    align-items: center; /* Menengahkan vertikal dan horizontal */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+}
+
+.center-register {
+    display: flex;
+    width: 65%;
+}
+
+.login-section .imgBx {
+    position: relative;
+    width: 50%;
+    height: 87vh;
+}
+
+.login-section .imgBx img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.login-section .contentBx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ededed;
+    border-radius: 0px 10px 10px 0px;
+    width: 50%;
+}
+
+/* Anda juga dapat menengahkan konten dalam .formBx */
+.login-section .contentBx .formBx {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-section .contentBx .formBx h2 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.login-section .contentBx .formBx p {
+    margin-bottom: 20px;
+}
+
+.login-section .contentBx .formBx .inputBx {
+    margin-bottom: 20px;
+}
+
+.background-img{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.login-section .contentBx .formBx .inputBx input {
+    padding: 10px 20px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    font-weight: 400;
+    width: 350px;
+}
+
+.login-section .login-button{
+    width: 150px;
+}
+
+.login-section .contentBx .formBx .remember {
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.login-section .contentBx .formBx .remember .forgot {
+    padding-left: 85px;
+
+}
+.tengah{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.login-section .contentBx .formBx .inputBx p {
+    color: black;
+    font-size: 15px;
+    text-align: center;
+}
+.login-section .contentBx .formBx .inputBx-input{
+    line-height: 90px;
+    font-size: 15px;
+}
+
+/* Login style */
+.center{
+    width: 400px;
+    background: rgb(233, 233, 233);
+    border-radius: 10px;
+    height: 400px;
+    top: 27%;
+    position: absolute;
+}
+.center h1{
+    text-align: center;
+    padding-top: 10px;
+}
+.center p{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .txt_field{
+    position: relative;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+.txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: black;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s
+    ;
+}
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+    top: -5%;
+    color: grey;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+    width: 100%;
+}
+.pass{
+    margin: -5px 0 20px 5px;
+}
+
+/* contact style */
+.container1{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.2rem;
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+}
+.section-title{
+    text-align: center;
+  }
+  .section-title h2{
+    font-size: 55px;
+    padding-bottom: 10px;
+  }
+  .team .member{
+    position: relative;
+    padding: 30px;
+    box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.2); /* Bayangan transparan pertama */
+
+    border-radius: 5px;
+    background: #fff;
+  }
+  .team .member .teampic{
+    overflow: hidden;
+    width: 180px;
+    border-radius: 50%;
+  }
+  .team .member .member-info{
+    padding-left: 30px;
+  }
+  .team .member h4{
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  .team .member span{
+    display: block;
+    font-size: 15px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 500;
+  }
+  .team .member span::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: black;
+    bottom: 0;
+    left: 0;
+  }
+  .team .member p{
+    margin: 10px 0 0 0;
+    font-size: 14px;
+  }
+  .section{
+    padding: 60px 0;
+    overflow: hidden;
+  }
+  .social a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #eff2f8;
+  }
+  .social a i{
+    color: black;
+    font-size: 16px;
+    margin: 0 2px;
+  }
+  .social a:hover{
+    background: #c3c3c4;
+    border-radius: 5px;
+  }
+  
+
+/* footer style */
+.container-footer .row .col-md-4{
+    padding: 20px;
+}
+.container-footer .row .col-md-4 a{
+    text-decoration: none;
+    color: #fff;
+    transition: .3s ease;
+}
+.container-footer .row .col-md-4 a:hover{
+    color: #007bff;
+}
+.garis{
+    border: 1px solid white;
+    transform: translateY(50%);
+}
+@media screen and (max-width: 1200px) {
+    .center-register{
+        width: 100%;
+        justify-content: center;
+    }
+    .center-register .contentBx{
+        border-radius: 10px;
+    }
+
+    .form-login{
+        width: 100%;
+    }
+
+    .imgBx {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .center-register .contentBx{
+        border-radius: 10px;
+        width: 100%;
+    }
+    .login-section .contentBx .formBx .inputBx input {
+       width: 100%; 
+    }
+
+    
+}
+
+@media screen and (min-width: 540px){
+    .navbar-nav a{
+        padding-right: 1.2rem;
+        padding-left: 1.2rem;
+    }
+    .banner-title{
+        font-size: 5rem;
+    }
+    .banner-form{
+        margin-top: 1.4rem;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width){
+    .navbar .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .search-input{
+        padding: 0.8rem;
+    }
+    .design-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    .design-item{
+        margin: 0;
+    }
+}
+

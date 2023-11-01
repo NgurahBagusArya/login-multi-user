@@ -1,0 +1,41 @@
+.section{
+    width: 100%;
+}
+.section .container{
+    width: 80%;
+    display: block;
+    margin: 0px auto;
+    padding: 50px 0px;
+}
+.container .title{
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+}
+.container .title h1{
+    text-transform: uppercase;
+    font-size: 35px;
+    color: black;
+}
+.contents{
+    float: left;
+    width: 50%;
+}
+.img{
+    float: right;
+    width: 40%;
+    justify-content: center;
+    display: flex;
+}
+.img img{
+    border-radius: 15px;
+    width: 70%;
+    height: 500px;
+}
+.contents .text{
+    text-align: center;
+    margin-top: 20vh;
+    text-justify: auto;
+    color: black;
+    font-size: 15px;
+}
