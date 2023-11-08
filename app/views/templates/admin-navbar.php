@@ -36,6 +36,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href='<?= BASEURL ?>/admin/addadmin'>
+                            <i class='bi bi-person-fill-add'></i>
+                            <span class='links_name'>Add Admin</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href='<?= BASEURL ?>/admin/blog'>
                             <i class="bi bi-newspaper"></i>
                             <span class='links_name'>Blog</span>

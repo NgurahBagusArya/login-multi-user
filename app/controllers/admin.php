@@ -12,12 +12,21 @@ class admin extends Controller{
     }
 
     public function user() {
-        $data['judul'] = 'User - Admin';
+        $data['judul'] = 'User - Admin'; 
         $data['users'] = $this->model('users_model')->getAllUsers();
         $this->view('Templates/admin-header', $data);
         $this->view('Templates/admin-navbar', $data);
         $this->view('admin/user', $data);
         $this->view('Templates/admin-footer');
+}
+
+public function addadmin() {
+    $data['judul'] = 'Addadmin -   Admin';
+    $data['users'] = $this->model('users_model')->getAllUsers();
+    $this->view('Templates/admin-header', $data);
+    $this->view('Templates/admin-navbar', $data);
+    $this->view('admin/addadmin', $data);
+    $this->view('Templates/admin-footer');
 }
 
     public function blog() {

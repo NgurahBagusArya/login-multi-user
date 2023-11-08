@@ -1,20 +1,3 @@
-<?php 
-
-if (isset($_POST["tambahDataUser"])) {
-
-    if( isset($_POST) > 0){
-    echo"<script>
-        alert('registrasi berhasil')
-    </script>";
-} else{
-    echo"<script>
-    alert('registrasi gagal')
-</script>";
-}
-}
-?>
-
-
 <header>
     <div class="container d-flex justify-content-center">
         <section class="login-section">
