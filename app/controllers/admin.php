@@ -1,41 +1,61 @@
-<?php 
-class admin extends Controller{
+<?php
+class admin extends Controller
+{
     public function index()
-    { 
-            $data['judul'] = 'Dashboard - Admin';
-            $data['trip'] = $this->model('Trip_model')->getAlltripdata();
-            $this->view('Templates/admin-header', $data);
-            $this->view('Templates/admin-navbar', $data);
-            $this->view('admin/index', $data);
-            $this->view('Templates/admin-footer');
-
+    {
+        $data['judul'] = 'Dashboard - Admin';
+        $data['trip'] = $this->model('Trip_model')->getAlltripdata();
+        $this->view('Templates/admin-header', $data);
+        $this->view('Templates/admin-navbar', $data);
+        $this->view('admin/index', $data);
+        $this->view('Templates/admin-footer');
     }
 
-    public function user() {
-        $data['judul'] = 'User - Admin'; 
+    public function user()
+    {
+        $data['judul'] = 'User - Admin';
         $data['users'] = $this->model('users_model')->getAllUsers();
         $this->view('Templates/admin-header', $data);
         $this->view('Templates/admin-navbar', $data);
         $this->view('admin/user', $data);
         $this->view('Templates/admin-footer');
-}
+    }
+    public function edit($id)
+    {
+        $data['judul'] = 'User - Admin';
+        $data['user'] = $this->model('users_model')->getUsersById($id);
+        $this->view('Templates/admin-header', $data);
+        $this->view('Templates/admin-navbar', $data);
+        $this->view('admin/update-admin', $data);
+        $this->view('Templates/admin-footer');
+    }
 
-public function addadmin() {
-    $data['judul'] = 'Addadmin -   Admin';
-    $data['users'] = $this->model('users_model')->getAllUsers();
-    $this->view('Templates/admin-header', $data);
-    $this->view('Templates/admin-navbar', $data);
-    $this->view('admin/addadmin', $data);
-    $this->view('Templates/admin-footer');
-}
+    public function addadmin()
+    {
+        $data['judul'] = 'Addadmin -   Admin';
+        $data['users'] = $this->model('users_model')->getAllUsers();
+        $this->view('Templates/admin-header', $data);
+        $this->view('Templates/admin-navbar', $data);
+        $this->view('admin/addadmin', $data);
+        $this->view('Templates/admin-footer');
+    }
 
-    public function blog() {
-            $data['judul'] = 'Blog - Admin';
-            $data['blog'] = $this->model('Admin_model')->getAlltraveldata();
-            $this->view('Templates/admin-header', $data);
-            $this->view('Templates/admin-navbar', $data);
-            $this->view('admin/blog', $data);
-            $this->view('Templates/admin-footer');
+    public function tambahAdmin()
+    {
+        if ($this->model('Users_Model')->tambahDataAdmin($_POST) > 0) {
+            header('Location:' . BASEURL . '/admin/addadmin');
+            exit;
+        }
+    }
+
+    public function blog()
+    {
+        $data['judul'] = 'Blog - Admin';
+        $data['blog'] = $this->model('Admin_model')->getAlltraveldata();
+        $this->view('Templates/admin-header', $data);
+        $this->view('Templates/admin-navbar', $data);
+        $this->view('admin/blog', $data);
+        $this->view('Templates/admin-footer');
     }
 
     public function readmore($id_blog)
@@ -43,9 +63,9 @@ public function addadmin() {
         var_dump($id_blog);
         $data['judul'] = 'Read More';
         $data['blog'] = $this->model('Blog_model')->getblogById($id_blog);
-        $this -> view ('Templates/header' ,$data);
-        $this -> view ('blog/readmore', $data);
-        $this -> view ('Templates/footer');
+        $this->view('Templates/header', $data);
+        $this->view('blog/readmore', $data);
+        $this->view('Templates/footer');
     }
 
     //Main Function (Buy Ticket)
@@ -59,17 +79,17 @@ public function addadmin() {
             $end = $_POST['end_date'];
             $harga = $_POST['harga'];
             $slot = $_POST['slot_ticket'];
-    
+
             $image_name = $_FILES["image"]["name"];
             $tmp_image = $_FILES["image"]["tmp_name"];
             $target_directory = $_SERVER['DOCUMENT_ROOT'] . '/travel/public/img/ticket/';
             $target_file = $target_directory . $image_name;
-            
+
             // Pastikan direktori tujuan ada
             if (!file_exists($target_directory)) {
                 mkdir($target_directory, 0777, true);
             }
-    
+
             // Periksa tipe file (hanya menerima gambar)
             $allowed_types = ['image/jpeg', 'image/jpg', 'image/png'];
             $image_type = $_FILES['image']['type'];
@@ -77,7 +97,7 @@ public function addadmin() {
                 echo 'Tipe file yang diunggah tidak valid.';
                 return;
             }
-    
+
             // Periksa ukuran file (batasi ukuran gambar)
             $max_size = 2 * 1024 * 1024; // 2 MB
             $image_size = $_FILES['image']['size'];
@@ -85,11 +105,11 @@ public function addadmin() {
                 echo 'Ukuran file terlalu besar. Maksimal 2MB diizinkan.';
                 return;
             }
-    
+
             if (move_uploaded_file($tmp_image, $target_file)) {
                 // Lokasi tempat menyimpan file gambar yang diunggah
                 $lokasi_simpan = '/travel/public/img/ticket/' . $image_name;
-    
+
                 $data = [
                     'nama_trip' => $nama_trip,
                     'deskripsi' => $deskripsi,
@@ -100,7 +120,7 @@ public function addadmin() {
                     'harga' => $harga,
                     'slot_tiket' => $slot
                 ];
-    
+
                 if ($this->model('admin_model')->tambahkanticket($data) > 0) {
                     header('Location: ' . BASEURL . '/admin/index');
                     exit;
@@ -110,30 +130,30 @@ public function addadmin() {
             }
         }
     }
-    
-    
 
-    
+
+
+
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $judul = $_POST['judul'];
             $author = $_POST['author'];
             $konten = $_POST['konten'];
-            
+
             $data = [
                 'judul' => $judul,
                 'author' => $author,
                 'konten' => $konten
             ];
-    
+
             if ($this->model('Blog_model')->tambahkanblog($data) > 0) {
-                 header('Location: ' . BASEURL . '/admin/blog');
-                 exit;
+                header('Location: ' . BASEURL . '/admin/blog');
+                exit;
             }
         }
     }
-    
+
     public function delete($id)
     {
         if ($this->model('Admin_model')->hapusblog($id) > 0) {
@@ -168,7 +188,7 @@ public function addadmin() {
         session_start();
         $loggedInUserId = $_SESSION['user_id'];
 
-        
+
         $activityType = 'demote'; // Tentukan jenis aktivitas (degradasi)
         if ($this->model('Admin_model')->demoteUser($id)) {
             $this->AdminLog($loggedInUserId, $activityType);
@@ -184,7 +204,61 @@ public function addadmin() {
             echo $message;
         }
     }
-    
 
+    // public function updateAdmin($id, $username, $email, $no_telp, $password)
+    // {
+    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //         $username = $_POST['username'];
+    //         $email = $_POST['email'];
+    //         $no_telp = $_POST['no_telp'];
+    //         $password = $_POST['password'];
+            
+
+    //           // Panggil fungsi model untuk melakukan pembaruan
+    //           if ($this->model('Admin_model')->updateAdmin($username, $email, $no_telp, $password)) {
+    //             // Redirect or show success message
+                
+    //             $data = [
+    //                 'username' => $username,
+    //                 'email' => $email,
+    //                 'no_telp' => $no_telp,
+    //                 'password' => $password
+    //             ];
+    
+    //             if ($this->model('admin_model')->updateAdmin($data) > 0) {
+    //                 header('Location: ' . BASEURL . '/admin/index');
+    //                 exit;
+    //             }
+                
+    //         } else {
+    //             header('Location: ' . BASEURL . '/admin/index');
+    //         }
+
+            
+    //     }else {
+    //         // Load the form for updating the trip
+    //         $trip = $this->model('Admin_model')->updateAdmin($id);
+    //         $data = [
+    //             'user' => $trip,
+    //         ];
+
+    //         $data['judul'] = 'Edit Admin';
+    //         $this->view('Templates/admin-header', $data);
+    //         $this->view('Templates/admin-navbar', $data);
+    //         $this->view('admin/update-admin', $data);
+    //         $this->view('Templates/admin-footer');
+    //     }
+    // }
+    
+    public function updateAdmin()
+    {
+        // Panggil fungsi model untuk melakukan pembaruan
+        if ($this->model('Admin_model')->updateAdmins($_POST) > 0) {
+            // Redirect or show success message
+            echo 'success';
+            header('Location: ' . BASEURL . '/admin/addadmin');
+            exit;
+        }
+    }
 }
 

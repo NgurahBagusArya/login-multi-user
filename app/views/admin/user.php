@@ -17,6 +17,7 @@
       <div class="user-name d-flex">
         <p href="#" class="username-column"><?= $row['username']; ?></p>
         <a href="#" class="email-column"><?= $row['email']; ?></a>
+        
       </div>
 
       <div class="d-flex">

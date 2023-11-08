@@ -78,5 +78,10 @@ class Login extends Controller {
         $this->view('templates/footer');
     }
 
+    
+
+    
+
 }
+
 

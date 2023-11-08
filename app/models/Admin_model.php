@@ -121,4 +121,34 @@ class Admin_model
 
         return $this->db->rowCount();
     }
-}
+    
+    // public function updateAdmins($id, $username, $email, $no_telp, $password)
+    // {
+    //     $this->db->query('UPDATE user SET username = :username, email = :email, no_telp = :no_telp,  password = :password WHERE id = :id');
+
+    //     $this->db->bind(':id', $id);
+    //     $this->db->bind(':username', $username);
+    //     $this->db->bind(':email', $email);
+    //     $this->db->bind(':no_telp', $no_telp);
+    //     $this->db->bind(':password', $password);
+        
+    //     $this->db->execute();
+    
+    //     return $this->db->rowCount();
+    // }   
+    public function updateAdmins($data)
+    {
+        $query = "UPDATE user SET username = :username, email = :email, no_telp = :no_telp,  password = :password WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('username', $data['username']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('no_telp', $data['no_telp']);
+        $this->db->bind('password', $data['password']);
+        $this->db->bind('id', $data['id']);
+        
+        $this->db->execute();
+    
+        return $this->db->rowCount();
+    }   
+}   

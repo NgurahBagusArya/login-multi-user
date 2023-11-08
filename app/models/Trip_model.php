@@ -21,6 +21,12 @@ class Trip_model{
         $this->db->bind('trip_id', $trip_id);
         return $this->db->single();
     }
+    public function updateadmin($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id = :id' );
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
 
     
 }
